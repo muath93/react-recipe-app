@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { recipeData } from "../data/tempDetails";
 
 
@@ -8,9 +8,25 @@ export default class SingleRecipe extends Component {
         super(props)
         const id = this.props.match.params.id;
         this.state = {
-            recipe: recipeData,
+            // recipe: recipeData,
+            recipe: {},
             id,
-            loading: false
+            loading: true
+        }
+    }
+
+    async componentDidMount() {
+        const url = `https://www.food2fork.com/api/get?key=${process.env.REACT_APP_API_KEY}&rId=${this.state.id}`
+        try {
+            const response = await fetch(url);
+            const data = await response.json()
+            this.setState({
+                recipe: data.recipe,
+                loading: false
+            });
+        }
+        catch (err) {
+            console.log(err);
         }
     }
     render() {
@@ -53,10 +69,10 @@ export default class SingleRecipe extends Component {
                             recipe url </a>
                         <ul className="list-group mt-4">
                             <h2 className='mt-3 mb-4'>Ingriedients</h2>
-                            {ingredients.map(item => {
+                            {ingredients.map((item, index) => {
                                 return (
                                     <li
-                                        key={this.state.id}
+                                        key={index}
                                         className='list-group-item text-slanted'>
                                         {item}
                                     </li>
