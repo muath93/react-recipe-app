@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { recipeData } from "../data/tempDetails";
+// import { recipeData } from "../data/tempDetails";
 
 
 export default class SingleRecipe extends Component {

@@ -14,7 +14,7 @@ export default function Recipe(props) {
                         provided by {publisher}
                     </h6>
                 </div>
-                <div className="card-footer">
+                <div className="card-footer d-flex justify-content-around">
                     <Link
                         to={`/recipes/${recipe_id}`}
                         className='btn btn-primary text-capitalize'>
