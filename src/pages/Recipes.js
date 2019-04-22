@@ -17,6 +17,8 @@ export default class Recipes extends Component {
         try {
             const response = await fetch(this.state.url);
             const data = await response.json()
+            // console.log(data);
+
             if (!data.recipes.length) {
                 this.setState({
                     error: 'Sorry but your search did not return any recipes, Please try again or press search icon for the most pupular recipes'
