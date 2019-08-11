@@ -24,7 +24,7 @@ export default function Search(props) {
                                 type='submit'
                                 className='input-group-text bg-primary text-white'
                                 onClick={handelSubmit}>
-                                <i className="fas fa-search"></i>
+                                <i className="fa fa-search"></i>
                             </button>
                         </div>
                     </div>
